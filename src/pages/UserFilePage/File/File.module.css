@@ -1,0 +1,74 @@
+.file {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 30px 2fr 1fr 2fr 30px;
+  grid-gap: 10px;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #00000018;
+  font-size: 14px;
+  letter-spacing: calc(1em / 20);
+}
+.image {
+  width: 30px;
+}
+.name {
+  font-weight: 500;
+}
+.name,
+.size,
+.author {
+  color: var(--gray);
+}
+
+.actions {
+  position: relative;
+}
+.more_button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  background-image: url(/More_Vertical.svg);
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.dropdown_menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #00000018;
+  box-shadow: 0 2px 8px rgba(130, 160, 180, 0.15);
+}
+.dropdown_menu button {
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.dropdown_menu button:hover {
+  background: #f0f0f0;
+}
+.rename_mod {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  grid-gap: 10px;
+}
+.rename_mod input {
+  font-size: 14px;
+  width: 100%;
+}
+.rename_mod button {
+  font-size: 14px;
+  padding: 10px 20px;
+}

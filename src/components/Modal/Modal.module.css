@@ -1,0 +1,30 @@
+.modal_overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #00000080;
+  display: grid;
+  place-items: center;
+}
+.modal_container {
+  width: 100%;
+  max-width: 50%;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: white;
+}
+.header {
+  display: flex;
+  justify-content: end;
+}
+.modal_close {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: transparent;
+  background-image: url(/Close_MD.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

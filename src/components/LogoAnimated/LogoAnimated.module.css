@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  grid-gap: 10px;
+}
+.text {
+  color: var(--primary);
+  letter-spacing: calc(1em / 20);
+}

@@ -1,0 +1,15 @@
+.preloader_container {
+  display: grid;
+  place-items: center;
+  font-size: 56px;
+  padding: 60px 0;
+  width: 90%;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+.load {
+  font-size: 18px;
+  color: var(--gray);
+}

@@ -1,0 +1,18 @@
+.overflow {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+}
+.side_menu {
+  width: 30%;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  color: white;
+  background-color: var(--primary);
+  box-shadow: 8px 0px 8px 0px rgba(130, 160, 180, 0.15);
+}

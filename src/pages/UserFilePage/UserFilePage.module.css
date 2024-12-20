@@ -1,0 +1,38 @@
+.upload_container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+}
+
+button.upload_btn {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  grid-gap: 10px;
+  padding: 12px 15px;
+}
+
+.upload_input {
+  display: none;
+}
+
+.add_file_wrap {
+  display: flex;
+  align-items: center;
+  grid-gap: 10px;
+  padding: 15px 0;
+  border-bottom: 1px solid #00000018;
+  color: var(--gray);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: calc(1em / 20);
+}
+.add_file_wrap img {
+  width: 30px;
+}
+
+.added_files {
+  padding-left: 45px;
+}
