@@ -1,11 +1,12 @@
 import "./App.css";
+import { Toaster } from "react-hot-toast";
 import Header from "./components/Header/Header";
 import { Route, Routes } from "react-router-dom";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import LoginPage from "./pages/AuthPage/LoginPage";
 import RegisterPage from "./pages/AuthPage/RegisterPage";
-import { Toaster } from "react-hot-toast";
 import UserFilePage from "./pages/UserFilePage/UserFilePage";
+import RecievedFilePage from "./pages/RecievedFilePage/RecievedFilePage";
 
 export default function App() {
   return (
@@ -24,10 +25,10 @@ export default function App() {
             }
           />
           <Route
-            path="/myAccess"
+            path="/access"
             element={
               <ProtectedRoute>
-                <UserFilePage />
+                <RecievedFilePage />
               </ProtectedRoute>
             }
           />

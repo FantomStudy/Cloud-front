@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styles from "./Modal.module.css";
 import { motion } from "motion/react";
-import { appearnce } from "../../animate";
+import { appearance } from "../../configs/animate";
 import Button from "../Button/Button";
 
 export default function Modal({ show, onCloseClick, children }) {
@@ -15,7 +15,7 @@ export default function Modal({ show, onCloseClick, children }) {
       <motion.div
         initial="hidden"
         animate="visible"
-        variants={appearnce}
+        variants={appearance}
         className={styles.modal_container}
       >
         <header className={styles.header}>

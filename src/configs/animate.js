@@ -1,5 +1,3 @@
-import { delay } from "motion";
-
 export const drawLogo = {
   hidden: { pathLength: 0, opacity: 0 },
   visible: (count) => ({
@@ -17,17 +15,6 @@ export const drawLogo = {
   }),
 };
 
-export const openSide = {
-  opened: {
-    x: 0,
-    transition: { duration: 0.2, type: "spring", bounce: 0 },
-  },
-  closed: {
-    x: "-100%",
-    transition: { duration: 0.2, type: "spring", bounce: 0 },
-  },
-};
-
 export const buttonAnimate = {
   hidden: {
     scale: 0.8,
@@ -43,6 +30,21 @@ export const buttonAnimate = {
   },
 };
 
+export const appearance = {
+  hidden: {
+    opacity: 0,
+    scale: 0.5,
+  },
+  visible: (custom) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      scale: { duration: 0.5, type: "spring", delay: custom * 0.2 },
+      delay: custom * 0.2,
+    },
+  }),
+};
+
 export const fileAppear = {
   hidden: {
     opacity: 0,
@@ -56,17 +58,36 @@ export const fileAppear = {
   }),
 };
 
-export const appearnce = {
-  hidden: {
-    opacity: 0,
-    scale: 0.5,
+export const sideMenuAppear = {
+  opened: {
+    x: 0,
+    transition: {
+      duration: 0.1,
+    },
   },
-  visible: (custom) => ({
+  closed: {
+    x: "-100%",
+    transition: {
+      duration: 0.1,
+    },
+  },
+};
+
+export const sideMenuOverlay = {
+  opened: {
     opacity: 1,
     scale: 1,
     transition: {
-      scale: { duration: 0.5, type: "spring", delay: custom * 0.2 },
-      delay: custom * 0.2,
+      scale: { duration: 0 },
+      opacity: { duration: 0.1 },
     },
-  }),
+  },
+  closed: {
+    opacity: 0,
+    scale: 0,
+    transition: {
+      scale: { duration: 0 },
+      opacity: { duration: 0.1 },
+    },
+  },
 };

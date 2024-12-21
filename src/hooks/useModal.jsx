@@ -6,5 +6,5 @@ export default function useModal() {
   function toggle() {
     setIsShowing(!isShowing);
   }
-  return [isShowing, toggle];   
+  return [isShowing, toggle];
 }

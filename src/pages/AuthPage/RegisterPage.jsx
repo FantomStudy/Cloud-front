@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import styles from "./AuthPages.module.css";
 import toast from "react-hot-toast";
 import { motion } from "motion/react";
-import { appearnce } from "../../animate";
+import { appearance } from "../../configs/animate";
 import Preloader from "../../components/Preloader/Preloader";
 import { register } from "../../requests/authRequests";
-import { useAuth } from "../../requests/authContext";
+import { useAuth } from "../../contexts/authContext";
 import { useNavigate, Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 
@@ -74,7 +74,7 @@ export default function RegisterPage() {
             className={styles.form}
             initial={"hidden"}
             whileInView={"visible"}
-            variants={appearnce}
+            variants={appearance}
           >
             <div className={styles.block}>
               <h1>Registration</h1>

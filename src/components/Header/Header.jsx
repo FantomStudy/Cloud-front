@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Header.module.css";
 import LogoAnimated from "../LogoAnimated/LogoAnimated";
-import { useAuth } from "../../requests/authContext";
+import { useAuth } from "../../contexts/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import SideMenu from "./SideMenu/SideMenu";
 import Button from "../Button/Button";
 
 export default function Header() {
-  const { isAuth, handleLogout } = useAuth();
+  const { isAuth } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -34,29 +34,19 @@ export default function Header() {
             </Link>
             <nav className={styles.nav}>
               {isAuth ? (
-                <>
-                  <Button
-                    className={`
+                <Button
+                  className={`
                       ${styles.burger_btn} 
                       ${isOpen ? `${styles.open}` : ""}
                     `}
-                    onClick={() => {
-                      setIsOpen(!isOpen);
-                    }}
-                  >
-                    <span className={styles.span}></span>
-                    <span className={styles.span}></span>
-                    <span className={styles.span}></span>
-                  </Button>
-
-                  <Button
-                    onClick={handleLogout}
-                    className="btn danger"
-                    custom={0.75}
-                  >
-                    Logout
-                  </Button>
-                </>
+                  onClick={() => {
+                    setIsOpen(!isOpen);
+                  }}
+                >
+                  <span className={styles.span}></span>
+                  <span className={styles.span}></span>
+                  <span className={styles.span}></span>
+                </Button>
               ) : (
                 <>
                   <Button

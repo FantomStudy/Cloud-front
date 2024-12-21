@@ -2,25 +2,23 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "./UserFilePage.module.css";
 import toast from "react-hot-toast";
 import { motion } from "motion/react";
+import { fileAppear } from "../../configs/animate";
 import Preloader from "../../components/Preloader/Preloader";
-import { showMyFiles, upload } from "../../requests/fileRequests";
-import File from "./File/File";
-import { appearnce } from "../../animate";
 import Button from "../../components/Button/Button";
+import { showUserFiles, upload } from "../../requests/fileRequests";
+import FileList from "./FileList/FileList";
 
 export default function UserFilePage() {
   const fileInputRef = useRef();
   const [data, setData] = useState([]); // все файлы пользователя
+  const [files, setFiles] = useState([]); // новые файлы
   const [loading, setLoading] = useState(true);
   const [isDisable, setIsDisable] = useState(false);
-
-  const [files, setFiles] = useState([]); // новые файлы
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await showMyFiles();
-
+        const response = await showUserFiles();
         setData(response);
       } catch (err) {
         toast.error(err.response.data.message || "Error loading files!");
@@ -32,7 +30,6 @@ export default function UserFilePage() {
     fetchData();
   }, []);
 
-  // обновление списка при удалении файла
   const handleFileDeleted = (deletedFileId) => {
     setData((prevData) =>
       prevData.filter((file) => file.file_id !== deletedFileId)
@@ -57,6 +54,16 @@ export default function UserFilePage() {
       if (successful.length > 0) {
         toast.success(`${successful.length} file(s) uploaded successfully!`);
       }
+      successful.forEach((file) => {
+        file.access = [
+          {
+            full_name: `${file.author.first_name} ${file.author.last_name}`,
+            email: file.author.email,
+            type: "author",
+          },
+        ];
+      });
+
       setData((prevData) => [...prevData, ...successful]);
 
       const failed = response.data.filter((file) => file.success == false);
@@ -69,6 +76,20 @@ export default function UserFilePage() {
       setFiles([]);
       setIsDisable(false);
     }
+  };
+
+  const handleFileChange = (e) => {
+    const selectedFiles = Array.from(e.target.files);
+    const validFiles = [];
+
+    selectedFiles.forEach((file) => {
+      if (file.size > 2 * 1024 * 1024) {
+        toast.error(`File ${file.name} is too large. The size limit is 2MB.`);
+      } else {
+        validFiles.push(file);
+      }
+    });
+    setFiles(validFiles);
   };
 
   if (loading) {
@@ -95,7 +116,7 @@ export default function UserFilePage() {
                   <motion.div
                     key={index}
                     className={styles.add_file_wrap}
-                    variants={appearnce}
+                    variants={fileAppear}
                     initial="hidden"
                     animate="visible"
                     custom={index}
@@ -113,7 +134,7 @@ export default function UserFilePage() {
               name="files"
               id="files"
               ref={fileInputRef}
-              onChange={(e) => setFiles(Array.from(e.target.files))}
+              onChange={handleFileChange}
               className={styles.upload_input}
             />
           </div>
@@ -128,23 +149,12 @@ export default function UserFilePage() {
             Upload
           </Button>
         </div>
-        <div className={styles.file_container}>
-          {data.map((file, index) => {
-            return (
-              <File
-                key={index}
-                id={file.file_id}
-                name={file.name}
-                size={file.size}
-                author={file.author.email}
-                accesses={file.access}
-                onDelete={handleFileDeleted}
-                onRename={handleFileRenamed}
-                custom={index / 1.2}
-              />
-            );
-          })}
-        </div>
+
+        <FileList
+          files={data}
+          onDelete={handleFileDeleted}
+          onRename={handleFileRenamed}
+        />
       </div>
     </section>
   );

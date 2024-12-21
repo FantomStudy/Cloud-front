@@ -1,14 +1,12 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { isAuthenticated, logout } from "./authRequests";
-import { Navigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { Navigate } from "react-router-dom";
+import { isAuthenticated, logout } from "../requests/authRequests";
 
-// создается контекст чтобы прокидывать пропсы быстрее
 const AuthContext = createContext();
 
 // провайдер предоставит доступ к контексту
 export const AuthProvider = ({ children }) => {
-  // общий стейт
   const [isAuth, setIsAuth] = useState(isAuthenticated());
 
   useEffect(() => {
@@ -33,5 +31,4 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-// хук содержит все что внутри провайдера
 export const useAuth = () => useContext(AuthContext);

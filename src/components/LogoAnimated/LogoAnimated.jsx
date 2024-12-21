@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./LogoAnimated.module.css";
 import { motion } from "motion/react";
-import { drawLogo } from "../../animate";
+import { drawLogo } from "../../configs/animate";
 
 export default function LogoAnimated({ width }) {
   const letters = Array.from("Cloud");

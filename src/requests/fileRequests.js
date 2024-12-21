@@ -1,7 +1,7 @@
-import api from "./api";
+import api from "../configs/api";
 
 // файлы пользователя
-export const showMyFiles = async () => {
+export const showUserFiles = async () => {
   const response = await api.get("/files/disk");
 
   return response.data;
@@ -32,22 +32,16 @@ export const download = async (file_id, file_name) => {
   URL.revokeObjectURL(url); // Убираем временный URL
 };
 
-// удаление файла
-export const deleteFile = async (file_id) => {
-  const response = await api.delete(`/files/${file_id}`);
-
-  return response;
-};
-
 // переименование файла
-export const renameFile = async (file_id, data) => {
+export const rename = async (file_id, data) => {
   const response = await api.patch(`/files/${file_id}`, data);
 
   return response;
 };
 
-export const showAllFiles = async () => {
-  const response = await api.get("/shared");
+// удаление файла
+export const deleteFile = async (file_id) => {
+  const response = await api.delete(`/files/${file_id}`);
 
-  return response.data;
+  return response;
 };

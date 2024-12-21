@@ -9,6 +9,9 @@
   font-size: 14px;
   letter-spacing: calc(1em / 20);
 }
+.received {
+  grid-template-columns: 30px 2fr 1fr 2fr 80px;
+}
 .image {
   width: 30px;
 }
@@ -21,8 +24,14 @@
   color: var(--gray);
 }
 
+.button {
+  padding: 10px;
+}
+
 .actions {
   position: relative;
+  display: grid;
+  place-items: center;
 }
 .more_button {
   width: 30px;

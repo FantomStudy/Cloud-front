@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { buttonAnimate } from "../../animate";
+import { buttonAnimate } from "../../configs/animate";
 
 export default function Button({ children, ...props }) {
   return (
