@@ -61,12 +61,14 @@ export const fileAppear = {
 export const sideMenuAppear = {
   opened: {
     x: 0,
+    opacity: 1,
     transition: {
       duration: 0.1,
     },
   },
   closed: {
     x: "-100%",
+    opacity: 0,
     transition: {
       duration: 0.1,
     },

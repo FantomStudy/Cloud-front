@@ -145,7 +145,7 @@ export default function RegisterPage() {
 
             <Button
               type="submit"
-              className="btn"
+              className={`btn ${styles.auth_btn}`}
               disabled={loading ? true : false}
             >
               Sign up

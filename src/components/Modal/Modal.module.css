@@ -28,3 +28,18 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+@media (max-width: 1024px) {
+  .modal_container {
+    max-width: 75%;
+  }
+}
+@media (max-width: 768px) {
+  .modal_container {
+    max-width: 90%;
+  }
+}
+@media (max-width: 450px) {
+  .modal_container {
+    max-width: 95%;
+  }
+}

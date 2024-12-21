@@ -81,3 +81,53 @@
   font-size: 14px;
   padding: 10px 20px;
 }
+.rename_file {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  grid-gap: 10px;
+}
+@media (max-width: 1024px) {
+  .file {
+    grid-template-columns: 30px 2fr 2fr 30px;
+  }
+  .received {
+    grid-template-columns: 30px 2fr 2fr 60px;
+  }
+  .size {
+    display: none;
+  }
+  .rename_mod {
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+  .rename_mod button {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+@media (max-width: 768px) {
+  .image {
+    width: 25px;
+  }
+  .file {
+    grid-template-columns: 25px 2fr 2fr 30px;
+  }
+  .received {
+    grid-template-columns: 25px 2fr 2fr 50px;
+  }
+}
+@media (max-width: 450px) {
+  .file {
+    grid-template-columns: 2fr 30px;
+  }
+  .received {
+    grid-template-columns: 2fr 40px;
+  }
+  .author {
+    display: none;
+  }
+  .image {
+    display: none;
+  }
+}

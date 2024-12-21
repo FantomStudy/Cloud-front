@@ -5,11 +5,14 @@ import { useAuth } from "../../contexts/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import SideMenu from "./SideMenu/SideMenu";
 import Button from "../Button/Button";
+import { useMediaQuery } from "react-responsive";
 
 export default function Header() {
   const { isAuth } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -30,7 +33,7 @@ export default function Header() {
         <div className="container">
           <div className={styles.header_wrapper}>
             <Link to="/" className={styles.logo_link}>
-              <LogoAnimated width="40px" />
+              <LogoAnimated width={isMobile ? "25px" : "40px"} />
             </Link>
             <nav className={styles.nav}>
               {isAuth ? (
@@ -53,7 +56,7 @@ export default function Header() {
                     onClick={() => {
                       navigate("/registration");
                     }}
-                    className="btn link"
+                    className={`btn link ${styles.auth_btn}`}
                   >
                     Registration
                   </Button>
@@ -62,7 +65,7 @@ export default function Header() {
                     onClick={() => {
                       navigate("/login");
                     }}
-                    className="btn"
+                    className={`btn ${styles.auth_btn}`}
                   >
                     Login
                   </Button>

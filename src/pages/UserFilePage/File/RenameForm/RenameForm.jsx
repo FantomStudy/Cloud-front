@@ -10,15 +10,17 @@ export default function RenameForm({
 }) {
   return (
     <form onSubmit={handleRename} className={styles.rename_mod}>
-      <input
-        type="text"
-        name="name"
-        value={name}
-        onChange={onChange}
-        className={styles.rename_input}
-      ></input>
+      <div className={styles.rename_file}>
+        <input
+          type="text"
+          name="name"
+          value={name}
+          onChange={onChange}
+          className={styles.rename_input}
+        ></input>
 
-      <p>{`.${extension}`}</p>
+        <p>{`.${extension}`}</p>
+      </div>
 
       <Button type="submit" className="btn">
         <img src="/Edit_Pencil_01.svg" alt="" />

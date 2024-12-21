@@ -6,7 +6,7 @@
   justify-content: space-between;
 }
 
-button.upload_btn {
+.upload_btn {
   font-size: 14px;
   padding: 12px 15px;
 }
@@ -32,4 +32,23 @@ button.upload_btn {
 
 .added_files {
   padding-left: 45px;
+}
+@media (max-width: 450px) {
+  .upload_container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .added_files {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 15px;
+  }
+  .upload_form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .upload_btn {
+    width: 100%;
+  }
 }

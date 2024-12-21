@@ -31,4 +31,36 @@
 }
 .owner {
   text-align: center;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .access_modal {
+    font-size: 14px;
+  }
+  .access_modal input {
+    font-size: 14px;
+  }
+  .user {
+    display: none;
+  }
+  .access {
+    grid-template-columns: 1fr 1.8fr 130px;
+  }
+}
+@media (max-width: 450px) {
+  .access_modal input {
+    width: 100%;
+  }
+  .access_form {
+    flex-direction: column;
+  }
+  .access {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 5px;
+  }
+  .full_name,
+  .email {
+    font-size: 16px;
+  }
 }

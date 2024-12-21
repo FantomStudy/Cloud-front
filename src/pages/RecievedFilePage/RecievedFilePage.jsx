@@ -28,6 +28,12 @@ export default function RecievedFilePage() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (file.id && file.name) {
+      handleDownload();
+    }
+  }, [file]);
+
   const handleDownload = async () => {
     try {
       await download(file.id, file.name);
@@ -66,7 +72,6 @@ export default function RecievedFilePage() {
                 className={`btn ${file_styles.button}`}
                 onClick={() => {
                   setFile({ name: file.name, id: file.file_id });
-                  handleDownload();
                 }}
               >
                 <img src="/Download.svg" alt="" />

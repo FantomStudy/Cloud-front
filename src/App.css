@@ -48,3 +48,10 @@
 .btn.access {
   background-color: var(--access);
 }
+
+@media (max-width: 768px) {
+  .btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}

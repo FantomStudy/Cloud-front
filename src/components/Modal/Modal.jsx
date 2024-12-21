@@ -19,10 +19,7 @@ export default function Modal({ show, onCloseClick, children }) {
         className={styles.modal_container}
       >
         <header className={styles.header}>
-          <Button
-            onClick={onCloseClick}
-            className={styles.modal_close}
-          ></Button>
+          <Button onClick={onCloseClick} className={styles.modal_close} />
         </header>
         {children}
       </motion.div>

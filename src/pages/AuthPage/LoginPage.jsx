@@ -104,7 +104,7 @@ export default function LoginPage() {
               />
             </div>
             <Button
-              className="btn"
+              className={`btn ${styles.auth_btn}`}
               type="submit"
               disabled={loading ? true : false}
             >

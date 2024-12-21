@@ -69,3 +69,23 @@
   transform: rotate(45deg);
   transform-origin: 50%;
 }
+
+@media (max-width: 1024px) {
+  .burger_btn {
+    width: 35px;
+    height: 35px;
+  }
+}
+@media (max-width: 768px) {
+  .logo_link {
+    font-size: 25px;
+  }
+  .nav {
+    grid-gap: 10px;
+  }
+}
+@media (max-width: 450px) {
+  .auth_btn {
+    display: none;
+  }
+}

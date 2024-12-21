@@ -19,9 +19,7 @@ export default function FileAccess({ id, file, initialAccess }) {
 
       toast.success(`Now ${addEmail} have access to this file`);
     } catch (err) {
-      toast.error(
-        err.response.data.message || "Не удалось предоставить доступ"
-      );
+      toast.error(err.response.data.message || "Couldn't grant access");
       console.log(err);
     }
   };
@@ -31,11 +29,9 @@ export default function FileAccess({ id, file, initialAccess }) {
       const response = await removeAccess(id, { email });
       setAccessList(response.data);
 
-      toast.success(`${email} больше не имеет доступа к файлу`);
+      toast.success(`${email} no longer has access to file`);
     } catch (err) {
-      toast.error(
-        err.response.data.message || "Не удалось ограничить в доступе!"
-      );
+      toast.error(err.response.data.message || "Couldn't restrict access!");
     }
   };
 
@@ -69,13 +65,13 @@ export default function FileAccess({ id, file, initialAccess }) {
             variants={fileAppear}
           >
             <img src="/User_03.svg" alt="" className={styles.user} />
-            <p>{access.full_name}</p>
-            <p>{access.email}</p>
+            <p className={styles.full_name}>{access.full_name}</p>
+            <p className={styles.email}>{access.email}</p>
             {access.type == "author" ? (
               <p className={styles.owner}>Owner of file</p>
             ) : (
               <Button
-                className="btn danger"
+                className={`btn danger ${styles.btn}`}
                 onClick={() => handleRemove(access.email)}
               >
                 <img src="/Trash_Empty.svg" alt="" />
