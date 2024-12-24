@@ -83,8 +83,8 @@ export default function UserFilePage() {
     const validFiles = [];
 
     selectedFiles.forEach((file) => {
-      if (file.size > 2 * 1024 * 1024) {
-        toast.error(`File ${file.name} is too large. The size limit is 2MB.`);
+      if (file.size > 5 * 1024 * 1024) {
+        toast.error(`File ${file.name} is too large. The size limit is 5MB.`);
       } else {
         validFiles.push(file);
       }
