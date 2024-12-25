@@ -18,4 +18,17 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      localStorage.removeItem("token");
+      window.location.href = "/login";
+      alert("Your session has been completed");
+    }
+    return Promise.reject(error); // Прокидываем ошибку дальше, если она не связана с 401
+  }
+);
+
 export default api;
